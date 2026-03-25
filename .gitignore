@@ -1,0 +1,32 @@
+# Derlenmiş dosyalar
+*.o
+*.bin
+*.elf
+*.iso
+
+# Geçmiş ve yedek dosyalar
+Gecmis_Dosyalar/
+
+# Kurulum ve build çıktıları
+install_build/
+EFI/
+iso/boot/
+boot/
+
+# Sistem dosyaları
+$RECYCLE.BIN/
+System Volume Information/
+IndexerVolumeGuid
+WPSettings.dat
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Agent ve workflow dosyaları
+.agents/
+.gemini/

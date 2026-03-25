@@ -1,0 +1,10 @@
+﻿
+*.md filter=anonpath
+*.c filter=anonpath
+*.h filter=anonpath
+*.asm filter=anonpath
+*.ld filter=anonpath
+Makefile filter=anonpath
+*.sh filter=anonpath
+*.txt filter=anonpath
+*.md filter=anon
