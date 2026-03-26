@@ -2,6 +2,7 @@ name: AegisOS Bot Comment Analyzer (DeepSeek)
 
 # Sadece Issue veya Pull Request'lere yeni yorum ('created') yapıldığında tetiklenir
 on:
+  workflow_dispatch:
   issue_comment:
     types: [created]
 
