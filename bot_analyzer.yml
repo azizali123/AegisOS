@@ -1,0 +1,35 @@
+name: AegisOS Bot Comment Analyzer (DeepSeek)
+
+# Sadece Issue veya Pull Request'lere yeni yorum ('created') yapıldığında tetiklenir
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  analyze-comment:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Kodunuzu Actions sunucusuna çeker
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Python ortamını kurar
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 3. Gerekli kütüphaneleri yükler (DeepSeek için sadece requests yeterli)
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # 4. Python analiz scriptini çalıştırır
+      - name: Run Analysis Bot
+        env:
+          # DeepSeek secret'ını script'e aktarıyoruz
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python analyze_comments.py
